@@ -1,0 +1,19 @@
+with open("/Users/myriamobialo/Downloads/rosalind_lgis.txt","r") as f:
+    f = f.readlines()
+    n = int(f[0])
+    l = list(map(int, f[1].split()))
+
+    def lgis(l):
+        increasing= []
+        decreasing = []
+
+        for (i,x) in enumerate(l):
+            a= max([increasing[j] for (j, y) in enumerate(l[:i]) if y < x] or [[]], key=len) + [x]
+            increasing.append(a)
+            
+        for (i,x) in enumerate(l):
+            b= max([decreasing[j] for (j, y) in enumerate(l[:i]) if y > x] or [[]], key=len) + [x]
+            decreasing.append(b)
+            
+        print(*max(increasing, key=len))
+        print(*max(decreasing, key=len))

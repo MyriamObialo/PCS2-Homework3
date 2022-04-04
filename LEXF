@@ -1,0 +1,8 @@
+from itertools import combinations, combinations_with_replacement, permutations
+import itertools
+
+def enum(s,n):     
+    string= "".join(s)
+    t=list(itertools.product(s,repeat= n))
+    for x in t:
+        print(*x,sep="")

@@ -1,0 +1,8 @@
+def recurrence(n,k):
+    big_gen=1
+    small_gen=1
+    for x in range(1,n-1):
+        a= big_gen + small_gen * k
+        small_gen=big_gen
+        big_gen=a
+    return big_gen

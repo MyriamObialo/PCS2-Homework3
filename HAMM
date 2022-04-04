@@ -1,0 +1,6 @@
+def mutations(string,string2):
+    l=list()
+    for x in range(0,len(string)):
+        if string[x] != string2[x]:
+            l.append(x)
+    print(len(l))

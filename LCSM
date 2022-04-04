@@ -1,0 +1,21 @@
+strings = open("/Users/myriamobialo/Downloads/rosalind_lcsm.txt").read()
+s = strings.split(">")[1:]
+for x in range(len(s)):
+    s[x] = s[x].replace("\n", '')
+    while s[x][0] not in "ACGT":
+        s[x] = s[x][1:]
+result = 'A'
+index = s.index(min(s, key=len))
+short_string= s[index]
+for x in range(len(short_string)):
+    n = 0
+    present = True
+    while present:
+        for i in s:
+            if short_string[x:x+n] not in i or n>1000:
+                present = False
+                break
+        if present:
+            result = max(short_string[x:x+n], result, key=len)
+        n += 1
+print(result)

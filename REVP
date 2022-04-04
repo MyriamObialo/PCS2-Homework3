@@ -1,0 +1,13 @@
+from Bio import SeqIO                           
+
+record = SeqIO.read('/Users/myriamobialo/Downloads/rosalind_revp.txt', "fasta")
+frw_seq = str(record.seq)                       
+rev_seq = str(record.seq.complement())          
+
+for x in range(len(frw_seq)):                   
+    for i in range(x, len(frw_seq)):            
+        m = frw_seq[x:i + 1]                    
+        rev_m = rev_seq[x:i + 1]                
+        if len(m) >= 4 and len(m) <= 12:        
+            if m == rev_m[::-1]:                
+                print(x + 1, len(m)) 

@@ -6,4 +6,5 @@ def prtm():
     for x in sequence:
         if x in m:
             result+=m[x]
+    file.close()
     print(round(result,3))
